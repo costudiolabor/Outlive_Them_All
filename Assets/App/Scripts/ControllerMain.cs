@@ -13,7 +13,7 @@ public class ControllerMain : IDisposable{
         controllerMenu.Initialize();
         controllerRules.Initialize();
         controllerCreateGame.Initialize();
-        controllerCreatePlayers.Initialize();
+        controllerCreatePlayers.Initialize(controllerCreateGame);
         Subscription();
     }
 
@@ -21,8 +21,12 @@ public class ControllerMain : IDisposable{
         controllerMenu.CreateGameEvent += OnCreateGame;
         controllerMenu.RulesEvent += OnRules;
         controllerRules.BackEvent += OnBackRules;
+        
         controllerCreateGame.NextEvent += OnCreatePlayers;
         controllerCreateGame.BackEvent += OnBackCreateGame;
+        
+        controllerCreatePlayers.NextEvent += OnGame;
+        controllerCreatePlayers.BackEvent += OnBackCreatePlayers;
     }
     
 
@@ -43,6 +47,7 @@ public class ControllerMain : IDisposable{
     
     private void OnCreatePlayers() {
         controllerCreateGame.Hide();
+        controllerCreatePlayers.CreatePlayers();
         controllerCreatePlayers.Show();
     }
     
@@ -50,7 +55,22 @@ public class ControllerMain : IDisposable{
         controllerCreateGame.Hide();
         controllerMenu.Show();
     }
-
+    
+    private void OnGame() {
+        // controllerCreateGame.Hide();
+        // controllerCreatePlayers.CreatePlayers();
+        // controllerCreatePlayers.Show();
+    }
+    
+    private void OnBackCreatePlayers() {
+        controllerCreatePlayers.Hide();
+        controllerCreateGame.Show();
+    }
+    
+    
+    
+    
+    
     public void Dispose() {
         controllerMenu.Dispose();
         controllerRules.Dispose();
