@@ -1,9 +1,9 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour {
-    [SerializeField] private TMP_Text playerNumber;
-    [SerializeField] private TMP_InputField playerName;
+    [SerializeField] private Text playerNumber;
+    [SerializeField] private InputField playerName;
 
     private string playerNickname;  
     public string PlayerNickname => playerNickname;  

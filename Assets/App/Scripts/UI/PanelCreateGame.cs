@@ -1,10 +1,10 @@
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PanelCreateGame : View  {
-    [SerializeField] private TMP_Text countPlayers;
+    //[SerializeField] private TMP_Text countPlayers;
+    [SerializeField] private Text countPlayers;
     [SerializeField] private Slider slider;
     
     [SerializeField] private Button buttonOn;
@@ -15,7 +15,9 @@ public class PanelCreateGame : View  {
     [SerializeField] private Button button1Min;
     [SerializeField] private Button button2Min;
     [SerializeField] private Button button5Min;
-    [SerializeField] private TMP_Text timer;
+    //[SerializeField] private TMP_Text timer;
+    [SerializeField] private Text timer;
+    
     [SerializeField] private Button buttonMinus10Sec;
     [SerializeField] private Button buttonPlus10Sec;
     
