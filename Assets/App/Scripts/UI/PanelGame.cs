@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelGame : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class PanelGame : View {
+    public void Initialize() {
+        Subscription();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void Subscription() {
+        
         
     }
+    
 }

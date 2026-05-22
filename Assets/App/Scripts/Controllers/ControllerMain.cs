@@ -8,12 +8,16 @@ public class ControllerMain : IDisposable{
     [SerializeField] private ControllerRules controllerRules;
     [SerializeField] private ControllerCreateGame controllerCreateGame;
     [SerializeField] private ControllerCreatePlayers controllerCreatePlayers;
+    [SerializeField] private ControllerNextPlayer controllerNextPlayer;
+    [SerializeField] private ControllerPanelGame controllerPanelGame;
 
     public void Initialize() {
         controllerMenu.Initialize();
         controllerRules.Initialize();
         controllerCreateGame.Initialize();
         controllerCreatePlayers.Initialize(controllerCreateGame);
+        controllerNextPlayer.Initialize();
+        controllerPanelGame.Initialize();
         Subscription();
     }
 
@@ -57,9 +61,8 @@ public class ControllerMain : IDisposable{
     }
     
     private void OnGame() {
-        // controllerCreateGame.Hide();
-        // controllerCreatePlayers.CreatePlayers();
-        // controllerCreatePlayers.Show();
+        controllerCreatePlayers.Hide();
+        controllerPanelGame.Show();
     }
     
     private void OnBackCreatePlayers() {
