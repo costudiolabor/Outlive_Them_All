@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -7,35 +6,35 @@ using Object = UnityEngine.Object;
 public class ControllerCreatePlayers {
     [SerializeField] private PanelCreatePlayers panelCreatePlayers;
     [SerializeField] private PlayerUI playerPrefab;
-
-    private ControllerCreateGame _controllerCreateGame;
+    private DataGame _dataGame;
     public event Action NextEvent, BackEvent;
-    
-    public List<PlayerUI> players = new List<PlayerUI>();
-    public void Initialize(ControllerCreateGame controllerCreateGame) {
+    public void Initialize(DataGame dataGame) {
+        _dataGame = dataGame;
         Subscription();
         panelCreatePlayers.Initialize();
-        _controllerCreateGame = controllerCreateGame;
+        
     }
 
     public void CreatePlayers() {
         DestroyPlayers();
-        int numPlayers = _controllerCreateGame.CountPlayers;
+        int numPlayers = _dataGame.countPlayers;
         RectTransform parent = panelCreatePlayers.Content;
         for (int i = 0; i < numPlayers; i++)
         {
             PlayerUI player = Object.Instantiate(playerPrefab, parent);
             int numPlayer = i + 1;
             player.Initialize(numPlayer);
-            players.Add(player);
+            _dataGame.players.Add(player);
         }
     }
     
+    
+    
     public void DestroyPlayers() {
-        foreach (var t in players) {
+        foreach (var t in _dataGame.players) {
             Object.Destroy(t.gameObject);
         }
-        players.Clear();
+        _dataGame.players.Clear();
     }
     
     public void Show() {

@@ -5,15 +5,18 @@ public class PlayerUI : MonoBehaviour {
     [SerializeField] private Text playerNumber;
     [SerializeField] private InputField playerName;
 
-    private string playerNickname;  
-    public string PlayerNickname => playerNickname;  
+    private int _number;  
+    private string _playerNickname;  
+    public int Number => _number;  
+    public string PlayerNickname => _playerNickname;  
+    
     public void Initialize(int number) {
         playerNumber.text = number.ToString();
         playerName.onValueChanged.AddListener(OnPlayerNameChanged);
     }
 
     private void OnPlayerNameChanged(string value) {
-        playerNickname = value;
+        _playerNickname = value;
     }
 
 

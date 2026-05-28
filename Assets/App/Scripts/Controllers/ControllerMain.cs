@@ -11,11 +11,11 @@ public class ControllerMain : IDisposable{
     [SerializeField] private ControllerNextPlayer controllerNextPlayer;
     [SerializeField] private ControllerPanelGame controllerPanelGame;
 
-    public void Initialize() {
+    public void Initialize(SettingGame settingGame, DataGame dataGame) {
         controllerMenu.Initialize();
         controllerRules.Initialize();
-        controllerCreateGame.Initialize();
-        controllerCreatePlayers.Initialize(controllerCreateGame);
+        controllerCreateGame.Initialize(settingGame, dataGame);
+        controllerCreatePlayers.Initialize(dataGame);
         controllerNextPlayer.Initialize();
         controllerPanelGame.Initialize();
         Subscription();

@@ -4,18 +4,14 @@ using UnityEngine;
 [Serializable]
 public class ControllerCreateGame {
     [SerializeField] private PanelCreateGame panelCreateGame;
+    private SettingGame _settingGame;
+    private DataGame _dataGame;
     
-    private int countPlayers;
-    private bool stateTimer;
-    private int currentTimer;
-
-    private const int minTimer = 0;
-    private const int maxTimer = 1800;
-    
-    public int CountPlayers => countPlayers;
     public event Action NextEvent, BackEvent;
 
-    public void Initialize() {
+    public void Initialize(SettingGame settingGame, DataGame dataGame) {
+        _settingGame = settingGame;
+        _dataGame = dataGame;
         Subscription();
         panelCreateGame.Initialize();
     }
@@ -36,23 +32,21 @@ public class ControllerCreateGame {
         panelCreateGame.NextEvent += OnNext;
     }
 
-
     private void OnStateTimer(bool state) {
-        stateTimer = state;
+        _dataGame.stateTimer = state;
     }
     
     private void OnChangeTimer(int sec) {
-        currentTimer += sec;
-        currentTimer = Mathf.Clamp(currentTimer, minTimer, maxTimer);
-        int minutes = currentTimer / 60;
-        int seconds = currentTimer % 60;
+        _dataGame.currentTimer += sec;
+        _dataGame.currentTimer = Mathf.Clamp(_dataGame.currentTimer, _settingGame.minTimer, _settingGame.maxTimer);
+        int minutes = _dataGame.currentTimer / 60;
+        int seconds = _dataGame.currentTimer % 60;
         string result = $"{minutes:00}:{seconds:00}";
         panelCreateGame.SetTimer(result);
     }
     
-    
     private void OnValueChanged(int value) {
-        countPlayers = value;  
+        _dataGame.countPlayers = value;
     }
     
     private void OnNext() {
