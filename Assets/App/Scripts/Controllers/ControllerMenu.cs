@@ -11,6 +11,10 @@ public class ControllerMenu : IDisposable{
         panelMenu.Initialize();
         Subscription();
     }
+    
+    public void ActiveContinue(bool isActive) {
+        panelMenu.ActiveContinue(isActive);
+    }
 
     public void Show() {
         panelMenu.Show();

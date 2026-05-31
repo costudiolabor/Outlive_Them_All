@@ -8,7 +8,7 @@ public class SwipeDrawerTouch : MonoBehaviour
     [SerializeField] private RectTransform parentOpenPanel;
     [SerializeField] private RectTransform leftPanel;
     [SerializeField] private RectTransform rightPanel;
-    [SerializeField] private float sensitive = 0.01f;
+    //[SerializeField] private float sensitive = 0.01f;
     [SerializeField] private float offSetDrag = 50.0f;
     [SerializeField] private float animationDuration = 0.3f;
 
