@@ -2,8 +2,9 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class ControllerMain : IDisposable{
-    
+public class ControllerMain : IDisposable
+{
+
     [SerializeField] private ControllerMenu controllerMenu;
     [SerializeField] private ControllerRules controllerRules;
     [SerializeField] private ControllerCreateGame controllerCreateGame;
@@ -11,14 +12,20 @@ public class ControllerMain : IDisposable{
     [SerializeField] private ControllerNextPlayer controllerNextPlayer;
     [SerializeField] private ControllerGameMain controllerGameMain;
 
-    public void Initialize(SettingGame settingGame, DataGame dataGame) {
+    public void Initialize(SettingGame settingGame, DataGame dataGame)
+    {
+        ClearData(dataGame);
         controllerMenu.Initialize();
         controllerRules.Initialize();
         controllerCreateGame.Initialize(settingGame, dataGame);
         controllerCreatePlayers.Initialize(dataGame);
         controllerNextPlayer.Initialize();
-        controllerGameMain.Initialize();
+        controllerGameMain.Initialize(dataGame);
         Subscription();
+    }
+
+    private void ClearData(DataGame dataGame) {
+        dataGame.ClearData();
     }
 
     private void Subscription() {
@@ -72,6 +79,7 @@ public class ControllerMain : IDisposable{
     private void OnGame() {
         controllerCreatePlayers.Hide();
         controllerGameMain.Show();
+        controllerGameMain.SettingGame();
     }
     
     private void OnBackCreatePlayers() {

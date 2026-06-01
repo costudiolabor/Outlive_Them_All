@@ -28,6 +28,11 @@ public class PanelCreateGame : View  {
    
     public void Initialize() {
         Subscription();
+        
+        int sliderValue = (int)slider.value;
+        SetCountPlayers(sliderValue);
+        SliderEvent?.Invoke(sliderValue);
+        OffTimer();
     }
 
     private void Subscription() {
@@ -45,12 +50,6 @@ public class PanelCreateGame : View  {
         
         buttonNext.onClick.AddListener(OnNext);
         buttonBack.onClick.AddListener(OnBack);
-        
-        int sliderValue = (int)slider.value;
-        SetCountPlayers(sliderValue);
-        SliderEvent?.Invoke(sliderValue);
-        OnTimer();
-
     }
 
     private void OnTimer() {

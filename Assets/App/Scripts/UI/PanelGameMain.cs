@@ -58,8 +58,8 @@ public class PanelGameMain : View {
         characteristic.text = value;
     }
 
-    public void SetTimer(float value) {
-        timer.text = value.ToString();
+    public void SetTimer(string value) {
+        timer.text = value;
     }
     
     private void OnClickKnowledge() {

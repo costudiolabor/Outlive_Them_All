@@ -45,6 +45,7 @@ public class ControllerCreateGame {
         panelCreateGame.SetTimer(result);
     }
     
+    
     private void OnValueChanged(int value) {
         _dataGame.countPlayers = value;
     }

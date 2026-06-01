@@ -24,6 +24,7 @@ public class ControllerCreatePlayers {
             PlayerUI player = Object.Instantiate(playerPrefab, parent);
             int numPlayer = i + 1;
             player.Initialize(numPlayer);
+            player.PlayerNickname = "Игрок " + numPlayer;
             _dataGame.players.Add(player);
         }
     }

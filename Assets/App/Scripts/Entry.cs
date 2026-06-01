@@ -15,7 +15,6 @@ public class Entry : MonoBehaviour {
 
     private void OnDestroy() {
         controllerMain.Dispose();
-        dataGame.players.Clear();
     }
 }
 
