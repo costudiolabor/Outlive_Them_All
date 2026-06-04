@@ -5,8 +5,12 @@ public class PlayerUI : MonoBehaviour {
     [SerializeField] private Text playerNumber;
     [SerializeField] private InputField playerName;
 
+    private CharacterCard _characterCard;
     private string _playerNickname;
     public int number;
+    
+    public CharacterCard CharacterCard => _characterCard;
+    
     public string PlayerNickname
     {
         get => _playerNickname;
