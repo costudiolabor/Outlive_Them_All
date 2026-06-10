@@ -4,7 +4,6 @@ using UnityEngine;
 [Serializable]
 public class ControllerMain : IDisposable
 {
-
     [SerializeField] private ControllerMenu controllerMenu;
     [SerializeField] private ControllerRules controllerRules;
     [SerializeField] private ControllerCreateGame controllerCreateGame;

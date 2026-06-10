@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [CreateAssetMenu(fileName = "DataGame", menuName = "ScriptableObjects/DataGame", order = 1)]
 public class DataGame : ScriptableObject
 {
@@ -24,9 +23,6 @@ public class DataGame : ScriptableObject
         currentIndexPlayer = 0;
         players.Clear();
     }
-    
-    
-  
     
 
     public int GetNumberPlayer() => players[currentIndexPlayer].number;
