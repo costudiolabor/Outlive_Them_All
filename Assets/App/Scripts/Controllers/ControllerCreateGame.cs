@@ -33,21 +33,21 @@ public class ControllerCreateGame {
     }
 
     private void OnStateTimer(bool state) {
-        _dataGame.stateTimer = state;
+        _dataGame.StateTimer = state;
     }
     
     private void OnChangeTimer(int sec) {
-        _dataGame.currentTimer += sec;
-        _dataGame.currentTimer = Mathf.Clamp(_dataGame.currentTimer, _settingGame.minTimer, _settingGame.maxTimer);
-        int minutes = _dataGame.currentTimer / 60;
-        int seconds = _dataGame.currentTimer % 60;
+        _dataGame.CurrentTimer += sec;
+        _dataGame.CurrentTimer = Mathf.Clamp(_dataGame.CurrentTimer, _settingGame.minTimer, _settingGame.maxTimer);
+        int minutes = _dataGame.CurrentTimer / 60;
+        int seconds = _dataGame.CurrentTimer % 60;
         string result = $"{minutes:00}:{seconds:00}";
         panelCreateGame.SetTimer(result);
     }
     
     
     private void OnValueChanged(int value) {
-        _dataGame.countPlayers = value;
+        _dataGame.CountPlayers = value;
     }
     
     private void OnNext() {

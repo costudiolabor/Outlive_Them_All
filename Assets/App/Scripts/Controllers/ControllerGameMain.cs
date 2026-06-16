@@ -23,14 +23,26 @@ public class ControllerGameMain : IDisposable{
         panelRight.Initialize();
     }
 
-    private void Subscription() {
+    //public event Action BioEvent, HealthEvent, BaggageEvent, ProfessionEvent, CharacterEvent, PhobiaEvent, KnowledgeEvent, RandomEvent, NextEvent; 
+    private void Subscription()
+    {
+        panelGameMain.BioEvent += OnClickBio;
+        panelGameMain.HealthEvent += OnClickHealth;
+        panelGameMain.BaggageEvent  += OnClickBaggage;
+        panelGameMain.ProfessionEvent  += OnClickProfession;
+        panelGameMain.CharacterEvent  += OnClickCharacter;
+        panelGameMain.PhobiaEvent  += OnClickPhobia;
+        panelGameMain.KnowledgeEvent  += OnClickKnowledge;
+        panelGameMain.RandomEvent  += OnClickRandomEvent;
+        panelGameMain.NextEvent += OnClickNextStep;
+        
         panelRight.RulesEvent += OnRules;
         panelRight.MenuEvent += OnMenu;
         panelRight.SoundEvent += OnSound;
     }
 
     public void SettingGame() {
-        int sec = _dataGame.currentTimer;
+        int sec = _dataGame.CurrentTimer;
         ShowTimer(sec);
         ShowInfo();
         CreateButtonsPlayers();
@@ -44,14 +56,14 @@ public class ControllerGameMain : IDisposable{
     }
 
     public void ShowInfo() {
-        int round = _dataGame.round;
+        int round = _dataGame.Round;
         int numberPlayer = _dataGame.GetNumberPlayer();
         string namePlayer = _dataGame.GetNamePlayer();
         panelGameMain.SetInfo(round, numberPlayer, namePlayer);
     }
 
     private void CreateButtonsPlayers() {
-        int numPlayers = _dataGame.countPlayers;
+        int numPlayers = _dataGame.CountPlayers;
         RectTransform parent = panelGameMain.ContentPlayers;
         for (int i = 0; i < numPlayers; i++) {
             ButtonPlayer buttonPlayer = Object.Instantiate(buttonPlayerPrefab, parent);
@@ -65,9 +77,65 @@ public class ControllerGameMain : IDisposable{
 
     private void ClickButtonPlayer(int indexPlayer) {
         Debug.Log(indexPlayer);
-        _dataGame.currentIndexPlayer = indexPlayer;
+        _dataGame.CurrentIndexPlayer = indexPlayer;
         ShowInfo();
+        CharacterCard characterCard = _dataGame.GetCharacterCard();
+        string characteristic = $"Имя: {characterCard.person.name}\n" +
+                                $"Фамилия: {characterCard.surName.name}\n";
+        panelGameMain.SetTextCharacteristic(characteristic);
     }
+    
+    private void OnClickKnowledge() {
+        CharacterCard characterCard = _dataGame.GetCharacterCard();
+        string characteristic = $"Знания: {characterCard.knowledge.name}\n";
+        panelGameMain.SetTextCharacteristic(characteristic);
+    }
+
+    private void OnClickPhobia() {
+        CharacterCard characterCard = _dataGame.GetCharacterCard();
+        string characteristic = $"Фобия: {characterCard.phoBia.name}\n";
+        panelGameMain.SetTextCharacteristic(characteristic);
+    }
+
+    private void OnClickCharacter() {
+        CharacterCard characterCard = _dataGame.GetCharacterCard();
+        string characteristic = $"Характер: {characterCard.personalityTrait.name}\n";
+        panelGameMain.SetTextCharacteristic(characteristic);
+    }
+
+    private void OnClickProfession() {
+        CharacterCard characterCard = _dataGame.GetCharacterCard();
+        string characteristic = $"Профессия: {characterCard.profession.name}\n";
+        panelGameMain.SetTextCharacteristic(characteristic);
+    }
+
+    private void OnClickBaggage() {
+        CharacterCard characterCard = _dataGame.GetCharacterCard();
+        string characteristic = $"Снаряжение: {characterCard.equipment.name}\n";
+        panelGameMain.SetTextCharacteristic(characteristic);
+    }
+
+    private void OnClickHealth() {
+        CharacterCard characterCard = _dataGame.GetCharacterCard();
+        string characteristic = $"Здоровье: {characterCard.healthTrait.name}\n";
+        panelGameMain.SetTextCharacteristic(characteristic);
+    }
+
+    private void OnClickBio() {
+        CharacterCard characterCard = _dataGame.GetCharacterCard();
+        string characteristic = $"пол: {characterCard.genderData.name}\n" +
+                                $"Возраст: {characterCard.ageGroup.minAge}\n";
+        panelGameMain.SetTextCharacteristic(characteristic);
+    }
+
+    private void OnClickNextStep() {
+        
+    }
+
+    private void OnClickRandomEvent() {
+        
+    }
+    
     
     private void OnRules() {
         RulesEvent?.Invoke();

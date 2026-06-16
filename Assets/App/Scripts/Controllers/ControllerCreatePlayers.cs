@@ -7,9 +7,11 @@ public class ControllerCreatePlayers {
     [SerializeField] private PanelCreatePlayers panelCreatePlayers;
     [SerializeField] private PlayerUI playerPrefab;
     private DataGame _dataGame;
+    private DataCharacter _dataCharacter;
     public event Action NextEvent, BackEvent;
-    public void Initialize(DataGame dataGame) {
+    public void Initialize(DataGame dataGame, DataCharacter dataCharacter) {
         _dataGame = dataGame;
+        _dataCharacter = dataCharacter;
         Subscription();
         panelCreatePlayers.Initialize();
         
@@ -17,7 +19,7 @@ public class ControllerCreatePlayers {
 
     public void CreatePlayers() {
         DestroyPlayers();
-        int numPlayers = _dataGame.countPlayers;
+        int numPlayers = _dataGame.CountPlayers;
         RectTransform parent = panelCreatePlayers.Content;
         for (int i = 0; i < numPlayers; i++)
         {
@@ -25,17 +27,19 @@ public class ControllerCreatePlayers {
             int numPlayer = i + 1;
             player.Initialize(numPlayer);
             player.PlayerNickname = "Игрок " + numPlayer;
-            _dataGame.players.Add(player);
+            _dataGame.Players.Add(player);
+            CharacterCard characterCard = _dataCharacter.GetCharacterCard();
+            player.CharacterCard = characterCard;
         }
     }
     
     
     
     public void DestroyPlayers() {
-        foreach (var t in _dataGame.players) {
+        foreach (var t in _dataGame.Players) {
             Object.Destroy(t.gameObject);
         }
-        _dataGame.players.Clear();
+        _dataGame.Players.Clear();
     }
     
     public void Show() {

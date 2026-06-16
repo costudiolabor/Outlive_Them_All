@@ -9,8 +9,12 @@ public class PlayerUI : MonoBehaviour {
     private string _playerNickname;
     public int number;
     
-    public CharacterCard CharacterCard => _characterCard;
-    
+    public CharacterCard CharacterCard
+    {
+        get => _characterCard;
+        set => _characterCard = value;
+    }
+
     public string PlayerNickname
     {
         get => _playerNickname;

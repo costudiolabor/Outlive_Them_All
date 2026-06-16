@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,7 @@ public class PanelGameMain : View {
     
     public RectTransform ContentPlayers => contentPlayers;
     
+    public event Action BioEvent, HealthEvent, BaggageEvent, ProfessionEvent, CharacterEvent, PhobiaEvent, KnowledgeEvent, RandomEvent, NextEvent; 
     
     public void Initialize() {
         Subscription();
@@ -63,31 +65,31 @@ public class PanelGameMain : View {
     }
     
     private void OnClickKnowledge() {
-        
+        KnowledgeEvent?.Invoke();
     }
 
     private void OnClickPhobia() {
-        
+        PhobiaEvent?.Invoke();
     }
 
     private void OnClickCharacter() {
-        
+        CharacterEvent?.Invoke();
     }
 
     private void OnClickProfession() {
-        
+        ProfessionEvent?.Invoke();
     }
 
     private void OnClickBaggage() {
-        
+        BaggageEvent?.Invoke();
     }
 
     private void OnClickHealth() {
-        
+        HealthEvent?.Invoke();
     }
 
     private void OnClickBio() {
-        
+        BioEvent?.Invoke();
     }
 
     private void OnClickNextStep() {
@@ -103,7 +105,24 @@ public class PanelGameMain : View {
     }
 
     private void UnSubscription() {
-      
+        buttonBio.onClick.RemoveAllListeners();
+        buttonHealth.onClick.RemoveAllListeners();
+        buttonBaggage.onClick.RemoveAllListeners();
+        buttonProfession.onClick.RemoveAllListeners();
+        buttonCharacter.onClick.RemoveAllListeners();
+        buttonPhobia.onClick.RemoveAllListeners();
+        buttonKnowledge.onClick.RemoveAllListeners();
+        buttonRandomEvent.onClick.RemoveAllListeners();
+        buttonNextStep.onClick.RemoveAllListeners();
+        BioEvent = null;
+        HealthEvent = null;
+        BaggageEvent = null;
+        ProfessionEvent = null;
+        CharacterEvent = null;
+        PhobiaEvent = null;
+        KnowledgeEvent = null;
+        RandomEvent = null;
+        NextEvent = null;
     }
     
 }

@@ -1,7 +1,10 @@
 ﻿using System;
+using UnityEngine.Serialization;
 
 [Serializable]
 public class CharacterCard {
+    public Person person;
+    public Surname surName;
     public GenderData genderData;
     public AgeGroup ageGroup;
     public HealthTrait healthTrait;
@@ -11,14 +14,20 @@ public class CharacterCard {
     public Profession profession;
     public Equipment equipment;
     public Knowledge knowledge;
-    
 }
 
 [Serializable]
 public class GenderData {
     public string name;
     public int value;
+
+    public GenderData(string name, int value)
+    {
+        this.name = name;
+        this.value = value;
+    }
 }
+
 //public void Setup 
 //characterCard.ge
 // Использование:
@@ -34,6 +43,14 @@ public class AgeGroup {
     public int minAge;
     public int maxAge;
     public int value;
+    
+    public AgeGroup(int min, int max, int value)
+    {
+        minAge = min;
+        maxAge = max;
+        this.value = value;
+    }
+    
     public bool ContainsAge(int age) { return age >= minAge && age <= maxAge; }
     
     // Создание массива:
@@ -64,6 +81,12 @@ public class HealthTrait {
     public string name;
     public int value;
 
+    public HealthTrait(string name, int value)
+    {
+        this.name = name;
+        this.value = value;
+    }
+    
 // Создание массива:
 // HealthTrait[] healthTraits = new HealthTrait[]
 // {
@@ -87,7 +110,15 @@ public class HealthTrait {
 public class PersonalityTrait {
     public string name;
     public int value;
+
+    public PersonalityTrait(string name, int value)
+    {
+        this.name = name;
+        this.value = value;
+    }
 }
+
+
 // Создание массива:
 // PersonalityTrait[] personalityTraits = new PersonalityTrait[]
 // {
@@ -109,6 +140,12 @@ public class PersonalityTrait {
 public class Phobia {
     public string name;
     public int value;
+
+    public Phobia(string name, int value)
+    {
+        this.name = name;
+        this.value = value;
+    }
 }
 
 // Создание массива:
@@ -128,6 +165,12 @@ public class Phobia {
 public class Mania {
     public string name;
     public int value;
+
+    public Mania(string name, int value)
+    {
+        this.name = name;
+        this.value = value;
+    }
 }
 
 // Создание массива:
@@ -147,6 +190,12 @@ public class Mania {
 public class Profession {
     public string name;
     public int value;
+
+    public Profession (string name, int value)
+    {
+        this.name = name;
+        this.value = value;
+    }
 }
 
 // Создание массива:
@@ -169,6 +218,12 @@ public class Profession {
 public class Equipment {
     public string name;
     public int value;
+
+    public Equipment (string name, int value)
+    {
+        this.name = name;
+        this.value = value;
+    }
 }
 
 // Создание массива:
@@ -194,6 +249,12 @@ public class Equipment {
 public class Knowledge {
     public string name;
     public int value;
+
+    public Knowledge (string name, int value)
+    {
+        this.name = name;
+        this.value = value;
+    }
 }
 
 // Создание массива:
@@ -219,6 +280,13 @@ public class ScenarioLocation {
     public int scenario;
     public string location;
     public int value;
+
+    public ScenarioLocation (int scenario, string location, int value)
+    {
+        this.scenario = scenario;
+        this.location = location;
+        this.value = value;
+    }
 }
 
 // Создание массива:
@@ -253,6 +321,15 @@ public class Scenario {
     public string title;
     public string description;
     public int value;
+
+    public Scenario (int number, string title, string description, int value)
+    {
+        this.number = number;
+        this.title = title;
+        this.description = description;
+        this.value = value;
+    }
+    
 }
 
 // Создание массива:
@@ -294,6 +371,13 @@ public enum Gender {
 public class Person {
     public string name;
     public Gender gender;
+
+    public Person (string name, Gender gender)
+    {
+        this.name = name;
+        this.gender = gender;
+    }
+    
 }
 
 // Создание массива:
@@ -388,6 +472,11 @@ public class Person {
 [Serializable]
 public class Surname {
     public string name;
+
+    public Surname (string name)
+    {
+        this.name = name;
+    }
 }
 
 // Создание массива:
@@ -465,6 +554,18 @@ public class GameEvent {
     public int rvValue;
     public bool turnsPlayerIntoMimicOrPossessed;
     public string description;
+
+    public GameEvent (int scenario, string title, EventEffectType effectType, int rvValue, bool turnsPlayerIntoMimicOrPossessed, string description)
+    {
+        
+        this.scenario = scenario;
+        this.title = title;
+        this.EffectType = effectType;
+        this.rvValue = rvValue;
+        this.turnsPlayerIntoMimicOrPossessed = turnsPlayerIntoMimicOrPossessed;
+        this.description = description;
+    }
+    
 }
 
 // Создание массива событий:
@@ -573,6 +674,14 @@ public class Ending {
     public int value;
     public string title;
     public string description;
+
+    public Ending(int scenario, int value, string title, string description)
+    {
+        this.scenario = scenario;
+        this.value = value;
+        this.title = title;
+        this.description = description;
+    }
 }
 
 // Создание массива концовок:

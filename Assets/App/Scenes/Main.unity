@@ -5516,6 +5516,7 @@ MonoBehaviour:
       buttonPlayerPrefab: {fileID: 88320960981542544, guid: 9d00fa693d8fa494e92bbe6e4b1a5e28, type: 3}
   settingGame: {fileID: 11400000, guid: 2ccb4cf7e4444f34187865025ca290ae, type: 2}
   dataGame: {fileID: 11400000, guid: 53af3aa59005be44cae9a62bb94ddd3f, type: 2}
+  dataCharacter: {fileID: 11400000, guid: 60be42a8c89e644448bae245f21c764f, type: 2}
 --- !u!4 &743209460
 Transform:
   m_ObjectHideFlags: 0
@@ -10897,7 +10898,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 203.04523, y: 90.099}
+  m_SizeDelta: {x: -616.9548, y: 90.099}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1529176627
 MonoBehaviour:
