@@ -188,11 +188,13 @@ public class Mania {
 
 [Serializable]
 public class Profession {
+    public int scenario;
     public string name;
     public int value;
 
-    public Profession (string name, int value)
+    public Profession (int scenario, string name, int value)
     {
+        this.scenario = scenario;
         this.name = name;
         this.value = value;
     }
@@ -216,11 +218,13 @@ public class Profession {
 
 [Serializable]
 public class Equipment {
+    public int scenario;
     public string name;
     public int value;
 
-    public Equipment (string name, int value)
+    public Equipment (int scenario, string name, int value)
     {
+        this.scenario = scenario;
         this.name = name;
         this.value = value;
     }
@@ -247,11 +251,13 @@ public class Equipment {
 
 [Serializable]
 public class Knowledge {
+    public int scenario;
     public string name;
     public int value;
 
-    public Knowledge (string name, int value)
+    public Knowledge (int scenario, string name, int value)
     {
+        this.scenario = scenario;
         this.name = name;
         this.value = value;
     }

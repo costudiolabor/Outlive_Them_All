@@ -28,7 +28,10 @@ public class ControllerCreatePlayers {
             player.Initialize(numPlayer);
             player.PlayerNickname = "Игрок " + numPlayer;
             _dataGame.Players.Add(player);
-            CharacterCard characterCard = _dataCharacter.GetCharacterCard();
+            
+            int scenario = _dataGame.Scenario;
+            
+            CharacterCard characterCard = _dataCharacter.GetCharacterCard(scenario);
             player.CharacterCard = characterCard;
         }
     }

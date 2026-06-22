@@ -1,5 +1,9 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 [CreateAssetMenu(fileName = "DataCharacter", menuName = "ScriptableObjects/DataCharacter", order = 1)]
 public class DataCharacter : ScriptableObject
@@ -71,108 +75,91 @@ public class DataCharacter : ScriptableObject
         new Mania("Дикемания (навязчивый интерес к судебным процессам)", 0),
         new Mania("Техномания", -1)
     };
-
-    public Profession[] professions = new Profession[]
+    
+   public Profession[] professions = new Profession[]
     {
-        new Profession("Корпоративный юрист", -5),
-        new Profession("Сотрудник службы безопасности", 6),
-        new Profession("Учёный", 5),
-        new Profession("Строитель", 3),
-        new Profession("Колонист", 2),
-        new Profession("Борт-механик", 6),
-        new Profession("Пилот", 3),
-        new Profession("Чернорабочий", 2),
-        new Profession("Повар", 1),
-        new Profession("Преступник", 0)
+        new Profession(1, "Корпоративный юрист", -5),
+        new Profession(1,"Сотрудник службы безопасности", 6),
+        new Profession(1,"Учёный", 5),
+        new Profession(1,"Строитель", 3),
+        new Profession(1,"Колонист", 2),
+        new Profession(1,"Борт-механик", 6),
+        new Profession(1,"Пилот", 3),
+        new Profession(1,"Чернорабочий", 2),
+        new Profession(1,"Повар", 1),
+        new Profession(1,"Преступник", 0),
+        
+        new Profession(2,"Священник", 5),
+        new Profession(2,"Репортёр", 1),
+        new Profession(2,"Демонолог", 7),
+        new Profession(2,"Патрульный", 3),
+        new Profession(2,"Бродяга", 2),
+        new Profession(2,"Риэлтор", -1),
+        new Profession(2,"Домовладелец", 2),
+        new Profession(2,"Недовольный сосед", 0),
+        new Profession(2,"Блогер", 0),
+        new Profession(2,"Парапсихолог", 4)
     };
     
     public Equipment[] equipment = new Equipment[]
     {
-        new Equipment("Импульсный пистолет", 4),
-        new Equipment("Энергетический батончик", 1),
-        new Equipment("Полное собрание сочинений Айзека Азимова", 0),
-        new Equipment("Карта-доступа", 5),
-        new Equipment("Ремонтный гель \"Тяп-Ляп\"", 3),
-        new Equipment("Био-сканер", 5),
-        new Equipment("Гель для укладки волос", 0),
-        new Equipment("Пачка никотиновой жвачки (без никотина)", 0),
-        new Equipment("Портативная консоль", 0),
-        new Equipment("Презервативы", 0),
-        new Equipment("Дорожный набор для игры в \"Гоблины и Гроты\"", 0),
-        new Equipment("Счастливая монетка", 0),
-        new Equipment("Тюбик лавандового рафа", 0)
+        new Equipment(1,"Импульсный пистолет", 4),
+        new Equipment(1,"Энергетический батончик", 1),
+        new Equipment(1,"Полное собрание сочинений Айзека Азимова", 0),
+        new Equipment(1,"Карта-доступа", 5),
+        new Equipment(1,"Ремонтный гель \"Тяп-Ляп\"", 3),
+        new Equipment(1,"Био-сканер", 5),
+        new Equipment(1,"Гель для укладки волос", 0),
+        new Equipment(1,"Пачка никотиновой жвачки (без никотина)", 0),
+        new Equipment(1,"Портативная консоль", 0),
+        new Equipment(1,"Презервативы", 0),
+        new Equipment(1,"Дорожный набор для игры в \"Гоблины и Гроты\"", 0),
+        new Equipment(1,"Счастливая монетка", 0),
+        new Equipment(1,"Тюбик лавандового рафа", 0),
+        
+        new Equipment(2,"Некрономикон (на латыни)", 4),
+        new Equipment(2,"Термос с лавандовым рафомафом", 0),
+        new Equipment(2,"Мел", 2),
+        new Equipment(2,"Три мешка соли", 5),
+        new Equipment(2,"Футболка AC/DC", 0),
+        new Equipment(2,"Зловещая кукла", -3),
+        new Equipment(2,"Свиное ухо", 1),
+        new Equipment(2,"Чек из \"Паранормально и точка\"", 0),
+        new Equipment(2,"Водяной пистолет (вода освещена)", 5),
+        new Equipment(2,"Фальшивая Библия Короля Якова", 0),
+        new Equipment(2,"Набор ритуальных свечей", 2),
+        new Equipment(2,"Эскиз защитного символа", 2),
+        new Equipment(2,"Пачка снеков \"Дьявольский ожог\"", 0)
     };
 
     
    public Knowledge[] knowledges = new Knowledge[]
    {
-       new Knowledge("Знает код от арсенала", 5),
-       new Knowledge("Знает пароль от медицинского модуля", 4),
-       new Knowledge("Знает как переделать сварочный аппарат в огнемет", 4),
-       new Knowledge("Знает столицы всех штатов Америки", 0),
-       new Knowledge("Знает, кто спит с Капитаном", 0),
-       new Knowledge("Знает все сезоны сериала \"Ковбой Пипоп\"", 0),
-       new Knowledge("Знает сюжет последней книги Джорджа Мартина", 0),
-       new Knowledge("Быстро собирает кубик-рубика", 0),
-       new Knowledge("Знает рецепт Космической Паэльи", 1),
-       new Knowledge("Знает кто выжил в конце \"Драйва\"", 0),
-       new Knowledge("Знает, где достать фильмы на белорусском", 0),
-       new Knowledge("Знает рецепт лавандового рафа", 0)
+       new Knowledge(1,"Знает код от арсенала", 5),
+       new Knowledge(1,"Знает пароль от медицинского модуля", 4),
+       new Knowledge(1,"Знает как переделать сварочный аппарат в огнемет", 4),
+       new Knowledge(1,"Знает столицы всех штатов Америки", 0),
+       new Knowledge(1,"Знает, кто спит с Капитаном", 0),
+       new Knowledge(1,"Знает все сезоны сериала \"Ковбой Пипоп\"", 0),
+       new Knowledge(1,"Знает сюжет последней книги Джорджа Мартина", 0),
+       new Knowledge(1,"Быстро собирает кубик-рубика", 0),
+       new Knowledge(1,"Знает рецепт Космической Паэльи", 1),
+       new Knowledge(1,"Знает кто выжил в конце \"Драйва\"", 0),
+       new Knowledge(1,"Знает, где достать фильмы на белорусском", 0),
+       new Knowledge(1,"Знает рецепт лавандового рафа", 0),
+       
+       new Knowledge(2,"Знает настоящее имя демона", 3),
+       new Knowledge(2,"Знает наизусть песню \"Проклятый старый дом\"", 0),
+       new Knowledge(2,"Знает, где прошлый хозяин прятал виски", 0),
+       new Knowledge(2,"Смотрел все сезоны \"Супернатуралов\"", 0),
+       new Knowledge(2,"Помнит полную биографию Папы Римского", 0),
+       new Knowledge(2,"Помнит все штампы из книг С. Кинга", 0),
+       new Knowledge(2,"Знает цену проклятого дома", 0),
+       new Knowledge(2,"Знает, что все делали прошлым летом", 1),
+       new Knowledge(2,"Знает латынь", 2),
+       new Knowledge(2,"Знает наизусть ритуал изгнания", 2),
+       new Knowledge(2,"Знает фокус с монеткой", 0),
    };
-   
-   
-   ScenarioLocation[] scenarioLocations = new ScenarioLocation[]
-   {
-       // Сценарий 1
-       new ScenarioLocation(1, "Кают-кампания", 1),
-       new ScenarioLocation(1, "Спортзал", 2),
-       new ScenarioLocation(1, "Раздатчик лавандового рафа", 0),
-       new ScenarioLocation(1, "Отсек гидропоники", 6),
-       new ScenarioLocation(1, "Грузовая палуба", 3),
-       new ScenarioLocation(1, "Стыковочный шлюз №69", -1),
-       new ScenarioLocation(1, "Кладовая ополаскивателя для рта", 0),
-       new ScenarioLocation(1, "Ремонтный отсек", 6),
-
-       // Сценарий 2
-       new ScenarioLocation(2, "Гостиная с камином", 1),
-       new ScenarioLocation(2, "Спальня", 0),
-       new ScenarioLocation(2, "Подвал", -4),
-       new ScenarioLocation(2, "Библиотека", 5),
-       new ScenarioLocation(2, "Чердак", -3),
-       new ScenarioLocation(2, "Чулан с коллекцией шляп", -1),
-       new ScenarioLocation(2, "Детская комната", -3),
-       new ScenarioLocation(2, "Кухня", 3),
-       new ScenarioLocation(2, "Ванная", 1)
-   };
-   
-   
-    Scenario[] scenarios = new Scenario[]
-    {
-        new Scenario(1, "На борту \"Тесея\"",
-            "2115 год, Земля задыхается от аномальных пыльных бурь, вызванных изменениями климата. " +
-            "Ваша команда — последняя надежда Человечества, отправившаяся на корабле \"Тесей\" в поисках нового дома. " +
-            "После долгого перелёта Вы приходите в себя в зале гибернации и замечаете, что большая часть капсул экипажа " +
-            "пуста или испорчена, в центре зала лежит разорванный труп в форме капитана, научный модуль — отстыкован, " +
-            "а бортовой компьютер \"Василиск Роко\" извещает Вас о запуске Протокола 8020. Судя по записям в судовом журнале " +
-            "на борт проникла инородная, мимикрирующая под обычных людей инопланетная форма жизни. И Вы — сырье для ЕЕ НОВОГО ДОМА.\n\n" +
-            "Теперь Ваша задача собрать команду, чтобы организовать оборону на корме корабля, а, по возможности, и потом дать тварям отпор, " +
-            "но помните — заражённые могут быть и среди Вас! Запасов и топлива, чтобы дождаться спасательного корабля на всех Вас не хватит, " +
-            "а с инопланетными чудовищами на борту Вы точно не сможете вернуться на Землю. Нужно дождаться помощи. Но доживёте ли Вы до нее? " +
-            "Уж точно не Все... Время тянуть соломинки.", 40),
-
-        new Scenario(2, "Дом Хоббса",
-            "Дом Хоббса — пугающее место, дурная слава о котором уже многие годы не сходит с полом жёлтых газет. " +
-            "Одержимый демоном Альберт Хоббс перебил всю свою семью, а после — загадочным образом исчез. С тех пор его зловещий особняк " +
-            "вот уже 30 лет переходит из рук в руки, а надолго задержавшиеся там люди всегда заканчивают свой земной путь загадочными, " +
-            "жуткими смертями. Вы все волею случая оказались в проклятом особняке Хоббса и вынуждены дать бой потустороннему кошмару. " +
-            "К несчастью, ритуал, найденный Вами в какой-то из древних книг был проведен с ошибками, вместо изгнания демон пробудился ото сна " +
-            "и явился по Ваши души. Двери и окна не поддаются, а из темных углов до Вас доносится зловещий глас, сотканный из десятков других голосов. " +
-            "Жестокая сущность готова отпустить Вас с миром, но не за просто так! Ей нужна свежая кровь, чтобы покинуть свою обитель... " +
-            "Вам придется оставить несколько своих товарищей в жертву темному духу, чтобы вырваться из дома и получить хотя бы призрачный шанс " +
-            "провести повторный ритуал изгнания за порогом дома. Не всем из Вас сегодня суждено выжить, и далеко не факт, что даже выбравшись из дома " +
-            "Вы сможете уберечь близлежащий город от вторжения потустороннего зла. Но и идей получше у Вас нет. Кто же получит шанс выбраться " +
-            "из кошмарного дома и положить конец бесчинствам демона? Решать только Вам.", 35)
-    };
    
     
     public Person[] persons = new Person[]
@@ -319,8 +306,59 @@ public class DataCharacter : ScriptableObject
         new Surname("Эрнандес")
     };
 
+    // Enum для типа персонажа
+    public enum CharacterRoleType
+    {
+        Human,      // Человек
+        Mimic,      // Мимик (Сценарий 1)
+        Possessed   // Одержимый (Сценарий 2)
+    }
+    
+    [System.Serializable]
+    public class CharacterRole
+    {
+        public int Scenario;              // Номер сценария (1 или 2)
+        public CharacterRoleType RoleType; // Тип роли
+        public string RoleName;            // Название роли
+        public string Description;         // Описание роли
+        public int Value;                  // Значение (0 для человека, -20 для заражённого)
+    
+        public CharacterRole(int scenario, CharacterRoleType roleType, string roleName, string description, int value)
+        {
+            Scenario = scenario;
+            RoleType = roleType;
+            RoleName = roleName;
+            Description = description;
+            Value = value;
+        }
+    }
 
-    public CharacterCard GetCharacterCard()
+// Создание массива ролей:
+    CharacterRole[] characterRoles = new CharacterRole[]
+    {
+        // ========== Сценарий 1 ==========
+        new CharacterRole(1, CharacterRoleType.Human, "Человек",
+            "Вы оказались в числе немногих, чудом спасшихся на борту \"Тесея\". Теперь Ваша задача — выжить. Любой ценой.",
+            0),
+    
+        new CharacterRole(1, CharacterRoleType.Mimic, "Мимик",
+            "Вы заражены! Неизвестно как и когда это случилось, но теперь Ваша задача — во чтобы то ни стало остаться " +
+            "в команде выживших, чтобы потом принести свою благодать на Землю...",
+            -20),
+    
+        // ========== Сценарий 2 ==========
+        new CharacterRole(2, CharacterRoleType.Human, "Человек",
+            "Вы простой смертный. Выберетесь из дома во чтобы то ни стало, чтобы успеть до рассвета провести новый ритуал и изгнать демона.",
+            0),
+    
+        new CharacterRole(2, CharacterRoleType.Possessed, "Одержимый",
+            "Внешне Вы всё ещё человек, но внутри — Вы уже слуга тёмного многоликого божества. Притворитесь здравомыслящим " +
+            "и выберетесь из дома, чтобы помешать новому ритуалу изгнания. Ваш владыка должен вырваться на свободу!",
+            -20)
+    };
+    
+
+    public CharacterCard GetCharacterCard(int scenario)
     {
         CharacterCard result = new CharacterCard()
         {
@@ -332,10 +370,11 @@ public class DataCharacter : ScriptableObject
             personalityTrait = personalityTraits[Random.Range(0, personalityTraits.Length)],
             phoBia = phobias[Random.Range(0, phobias.Length)],
             mania = manias[Random.Range(0, manias.Length)],
-            profession = professions[Random.Range(0, professions.Length)],
-            equipment = equipment[Random.Range(0, equipment.Length)],
-            knowledge = knowledges[Random.Range(0, knowledges.Length)]
+            profession = professions.GetRandomByScenario(scenario, p => p.scenario),
+            equipment = equipment.GetRandomByScenario(scenario, p => p.scenario),
+            knowledge = knowledges.GetRandomByScenario(scenario, p => p.scenario)
         };
+        
         return result;
     }
     
