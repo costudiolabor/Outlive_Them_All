@@ -29,7 +29,7 @@ public class ControllerCreatePlayers {
             player.PlayerNickname = "Игрок " + numPlayer;
             _dataGame.Players.Add(player);
             
-            int scenario = _dataGame.Scenario;
+            int scenario = _dataGame.ScenarioCount;
             
             CharacterCard characterCard = _dataCharacter.GetCharacterCard(scenario);
             player.CharacterCard = characterCard;

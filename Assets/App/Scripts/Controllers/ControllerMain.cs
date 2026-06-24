@@ -13,7 +13,7 @@ public class ControllerMain : IDisposable
 
     public void Initialize(SettingGame settingGame, DataGame dataGame, DataCharacter dataCharacter)
     {
-        ClearData(dataGame);
+        StartNewGame(dataGame);
         controllerMenu.Initialize();
         controllerRules.Initialize();
         controllerCreateGame.Initialize(settingGame, dataGame);
@@ -23,8 +23,8 @@ public class ControllerMain : IDisposable
         Subscription();
     }
 
-    private void ClearData(DataGame dataGame) {
-        dataGame.ClearData();
+    private void StartNewGame(DataGame dataGame) {
+        dataGame.StartNewGame();
     }
 
     private void Subscription() {

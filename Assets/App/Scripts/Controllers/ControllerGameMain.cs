@@ -19,11 +19,10 @@ public class ControllerGameMain : IDisposable{
         Subscription();
         panelGameParent.Initialize();
         panelGameMain.Initialize();
-        panelLeft.Initialize();
-        panelRight.Initialize();
+        panelLeft.Initialize(dataGame);
+        panelRight.Initialize(dataGame);
     }
 
-    //public event Action BioEvent, HealthEvent, BaggageEvent, ProfessionEvent, CharacterEvent, PhobiaEvent, KnowledgeEvent, RandomEvent, NextEvent; 
     private void Subscription()
     {
         panelGameMain.BioEvent += OnClickBio;
@@ -135,7 +134,6 @@ public class ControllerGameMain : IDisposable{
     private void OnClickRandomEvent() {
         
     }
-    
     
     private void OnRules() {
         RulesEvent?.Invoke();

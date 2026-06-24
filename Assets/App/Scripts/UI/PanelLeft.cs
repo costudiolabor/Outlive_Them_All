@@ -7,11 +7,15 @@ public class PanelLeft : View {
     [SerializeField] private Text titleSafeZone;
     [SerializeField] private Text descriptionSafeZone;
 
-    public void Initialize() {
-        Subscription();
-    }
-
-    private void Subscription() {
+    public void Initialize(DataGame dataGame)
+    {
+        string value = dataGame.Scenario.title;
+        SetNameGame(value);
+        
+        value = dataGame.Scenario.description;
+        SetDescriptionGame(value);
+        
+        
         
     }
     

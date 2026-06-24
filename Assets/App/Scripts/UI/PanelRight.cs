@@ -12,8 +12,9 @@ public class PanelRight : View {
 
     public event Action RulesEvent, MenuEvent, SoundEvent;
     
-    public void Initialize() {
+    public void Initialize(DataGame dataGame) {
         Subscription();
+        
     }
 
     private void Subscription() {
