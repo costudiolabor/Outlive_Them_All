@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 public class CharacterCard {
     public Person person;
     public Surname surName;
-    public GenderData genderData;
+    public GenderData gender;
     public AgeGroup ageGroup;
     public HealthTrait healthTrait;
     public PersonalityTrait personalityTrait;
@@ -19,11 +19,13 @@ public class CharacterCard {
 [Serializable]
 public class GenderData {
     public string name;
+    public Gender gender;
     public int value;
 
-    public GenderData(string name, int value)
+    public GenderData(string name, int value, Gender gender)
     {
         this.name = name;
+        this.gender = gender;
         this.value = value;
     }
 }
@@ -370,7 +372,8 @@ public class Scenario {
 
 public enum Gender {
     Male,
-    Female
+    Female,
+    Trans
 }
 
 [Serializable]

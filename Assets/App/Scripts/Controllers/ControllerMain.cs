@@ -15,7 +15,8 @@ public class ControllerMain : IDisposable
     {
         StartNewGame(dataGame);
         controllerMenu.Initialize();
-        controllerRules.Initialize();
+        string rules = dataGame.Rules;
+        controllerRules.Initialize(rules);
         controllerCreateGame.Initialize(settingGame, dataGame);
         controllerCreatePlayers.Initialize(dataGame, dataCharacter);
         controllerNextPlayer.Initialize();

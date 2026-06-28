@@ -10,9 +10,9 @@ public class DataCharacter : ScriptableObject
 {
     public GenderData[] genderData = new GenderData[]
     {
-        new GenderData("Мужчина", 0),
-        new GenderData("Женщина", 0),
-        new GenderData("Трансгендер", 0)
+        new GenderData("Мужчина", 0, Gender.Male),
+        new GenderData("Женщина", 0, Gender.Female),
+        new GenderData("Трансгендер", 0,Gender.Trans)
     };
 
     public AgeGroup[] ageGroups = new AgeGroup[]
@@ -360,21 +360,21 @@ public class DataCharacter : ScriptableObject
 
     public CharacterCard GetCharacterCard(int scenario)
     {
-        CharacterCard result = new CharacterCard()
-        {
-            person = persons[Random.Range(0, persons.Length)],
-            surName = surnames[Random.Range(0, surnames.Length)],
-            genderData = genderData[Random.Range(0, genderData.Length)],
-            ageGroup = ageGroups[Random.Range(0, ageGroups.Length)],
-            healthTrait = healthTraits[Random.Range(0, healthTraits.Length)],
-            personalityTrait = personalityTraits[Random.Range(0, personalityTraits.Length)],
-            phoBia = phobias[Random.Range(0, phobias.Length)],
-            mania = manias[Random.Range(0, manias.Length)],
-            profession = professions.GetRandomByScenario(scenario, p => p.scenario),
-            equipment = equipment.GetRandomByScenario(scenario, p => p.scenario),
-            knowledge = knowledges.GetRandomByScenario(scenario, p => p.scenario)
-        };
+        CharacterCard result = new CharacterCard();
+        result.gender = genderData[Random.Range(0, genderData.Length)];
         
+        result.person = persons[Random.Range(0, persons.Length)];
+            //persons.GetRandomName(result.gender.gender, p => p.gender);
+        
+        result.surName = surnames[Random.Range(0, surnames.Length)];
+        result.ageGroup = ageGroups[Random.Range(0, ageGroups.Length)];
+        result.healthTrait = healthTraits[Random.Range(0, healthTraits.Length)];
+        result.personalityTrait = personalityTraits[Random.Range(0, personalityTraits.Length)];
+        result.phoBia = phobias[Random.Range(0, phobias.Length)];
+        result.mania = manias[Random.Range(0, manias.Length)];
+        result.profession = professions.GetRandomByScenario(scenario, p => p.scenario);
+        result.equipment = equipment.GetRandomByScenario(scenario, e => e.scenario);
+        result.knowledge = knowledges.GetRandomByScenario(scenario, k => k.scenario);
         return result;
     }
     

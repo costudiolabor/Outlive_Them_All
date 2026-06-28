@@ -4,11 +4,13 @@ using UnityEngine.UI;
 
 public class PanelRules : View {
     [SerializeField] private Button buttonBack;
+    [SerializeField] private Text textRules;
     
     public event Action BackEvent;
     
-    public void Initialize() {
+    public void Initialize(string rules) {
         Subscription();
+        textRules.text = rules;
     }
 
     private void Subscription() {

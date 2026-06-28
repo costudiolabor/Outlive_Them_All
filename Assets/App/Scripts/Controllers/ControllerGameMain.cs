@@ -122,7 +122,7 @@ public class ControllerGameMain : IDisposable{
 
     private void OnClickBio() {
         CharacterCard characterCard = _dataGame.GetCharacterCard();
-        string characteristic = $"пол: {characterCard.genderData.name}\n" +
+        string characteristic = $"пол: {characterCard.gender.name}\n" +
                                 $"Возраст: {characterCard.ageGroup.minAge}\n";
         panelGameMain.SetTextCharacteristic(characteristic);
     }

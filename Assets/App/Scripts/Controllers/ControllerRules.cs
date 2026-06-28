@@ -6,8 +6,8 @@ public class ControllerRules : IDisposable {
     [SerializeField] private PanelRules panelRules;
     
     public event Action BackEvent;
-    public void Initialize() {
-        panelRules.Initialize();
+    public void Initialize(string rules) {
+        panelRules.Initialize(rules);
         Subscription();
     }
     
