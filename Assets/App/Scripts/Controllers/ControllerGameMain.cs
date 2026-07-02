@@ -58,7 +58,9 @@ public class ControllerGameMain : IDisposable{
         int round = _dataGame.Round;
         int numberPlayer = _dataGame.GetNumberPlayer();
         string namePlayer = _dataGame.GetNamePlayer();
+        Texture icon = _dataGame.GetCharacterCard().iconPerson.icon;
         panelGameMain.SetInfo(round, numberPlayer, namePlayer);
+        panelGameMain.SetIconPlayer(icon);
     }
 
     private void CreateButtonsPlayers() {

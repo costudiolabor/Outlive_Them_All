@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09c42350e8795345b381e82972606d7, type: 3}
+  m_Name: DataIconPerson
+  m_EditorClassIdentifier: 
+  icons:
+  - scenarioCount: 1
+    gender: 1
+    race: 0
+    icon: {fileID: 2800000, guid: 3aa4c015f67ea8e4d93a5ebf94b6b92c, type: 3}
+  - scenarioCount: 1
+    gender: 1
+    race: 0
+    icon: {fileID: 2800000, guid: 55a793a385808314e9dc9b8e9d931d47, type: 3}
+  - scenarioCount: 1
+    gender: 1
+    race: 0
+    icon: {fileID: 2800000, guid: 8b85ab294ccbc714da4376b5263b7f98, type: 3}
+  - scenarioCount: 1
+    gender: 1
+    race: 0
+    icon: {fileID: 2800000, guid: 0ac825119a96caa40bfc0cad842c025d, type: 3}
+  - scenarioCount: 1
+    gender: 0
+    race: 0
+    icon: {fileID: 2800000, guid: 60054f1acb6b9f4459e7b43ddf095502, type: 3}
+  - scenarioCount: 1
+    gender: 0
+    race: 0
+    icon: {fileID: 2800000, guid: 58ad6aeecf0e88542b7857894ccf2a15, type: 3}
+  - scenarioCount: 1
+    gender: 0
+    race: 0
+    icon: {fileID: 2800000, guid: 83d48aa0f9f428d4089f49dff87224e0, type: 3}
+  - scenarioCount: 1
+    gender: 0
+    race: 0
+    icon: {fileID: 2800000, guid: 509f93087efc9074f9e56c71b75b62e4, type: 3}
+  - scenarioCount: 1
+    gender: 2
+    race: 0
+    icon: {fileID: 2800000, guid: 1ee100a70ec71da4fa6546a45ff88909, type: 3}
+  - scenarioCount: 1
+    gender: 2
+    race: 0
+    icon: {fileID: 2800000, guid: c55bfcf4f41b91540a481de28c44b8e7, type: 3}
+  - scenarioCount: 1
+    gender: 1
+    race: 1
+    icon: {fileID: 2800000, guid: fb2fe49fcb20ed0439ba93de6edc092d, type: 3}
+  - scenarioCount: 1
+    gender: 1
+    race: 1
+    icon: {fileID: 2800000, guid: 2fb6ca3c296dbbd4fa8ca69836145f4b, type: 3}
+  - scenarioCount: 1
+    gender: 1
+    race: 1
+    icon: {fileID: 2800000, guid: cfe96e1c8670beb4bbf509d644de1543, type: 3}
+  - scenarioCount: 1
+    gender: 1
+    race: 1
+    icon: {fileID: 2800000, guid: 5e6e0b7c7d56d20469c5ad3d25d6a22a, type: 3}
+  - scenarioCount: 1
+    gender: 0
+    race: 1
+    icon: {fileID: 2800000, guid: 58f9317db755dc14eb21a493e605e2a1, type: 3}
+  - scenarioCount: 1
+    gender: 0
+    race: 1
+    icon: {fileID: 2800000, guid: bb55180d29150f94f8b417bb7cc19817, type: 3}
+  - scenarioCount: 1
+    gender: 0
+    race: 1
+    icon: {fileID: 2800000, guid: 75feb0622d1cada45a62347c9e174830, type: 3}
+  - scenarioCount: 1
+    gender: 0
+    race: 1
+    icon: {fileID: 2800000, guid: b43bee06fb99df048a151af7d60317a9, type: 3}
+  - scenarioCount: 1
+    gender: 2
+    race: 1
+    icon: {fileID: 2800000, guid: 844c6f2efc55ef040852ac9c25f22364, type: 3}
+  - scenarioCount: 1
+    gender: 2
+    race: 1
+    icon: {fileID: 2800000, guid: 26c135cfe2d23584180c06f2a3d0de1d, type: 3}

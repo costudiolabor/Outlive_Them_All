@@ -52,8 +52,8 @@ public class PanelGameMain : View {
         namePlayer.text = name;
     }
 
-    public void SetIconPlayer(Sprite sprite) {
-        iconPlayer.texture = sprite.texture;
+    public void SetIconPlayer(Texture icon) {
+        iconPlayer.texture = icon;
     }
 
     public void SetTextCharacteristic(string value) { 

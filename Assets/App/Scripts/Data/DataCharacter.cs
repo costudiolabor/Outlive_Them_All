@@ -15,6 +15,16 @@ public class DataCharacter : ScriptableObject
         new GenderData("Трансгендер", 0,Gender.Trans)
     };
 
+    public RaceData[] raceData = new RaceData[]
+    {
+        new RaceData(1,"Человек", Race.Human),
+        new RaceData(2,"Человек", Race.Human),
+        new RaceData(1,"Мимик", Race.Mimic),
+        new RaceData(2,"Демон", Race.Demon)
+    };
+
+   public DataIconPerson dataIconPerson;
+
     public AgeGroup[] ageGroups = new AgeGroup[]
     {
         new AgeGroup(10, 15, -2),
@@ -362,9 +372,12 @@ public class DataCharacter : ScriptableObject
     {
         CharacterCard result = new CharacterCard();
         result.gender = genderData[Random.Range(0, genderData.Length)];
+        result.raceData = raceData[Random.Range(0, raceData.Length)];
         
-        result.person = persons[Random.Range(0, persons.Length)];
-            //persons.GetRandomName(result.gender.gender, p => p.gender);
+        result.iconPerson = dataIconPerson.icons[Random.Range(0, dataIconPerson.icons.Length)];
+        
+        result.person = persons[Random.Range(0, persons.Length)]; 
+        //result.person = persons.GetRandomName(result.gender.gender, p => p.gender);
         
         result.surName = surnames[Random.Range(0, surnames.Length)];
         result.ageGroup = ageGroups[Random.Range(0, ageGroups.Length)];

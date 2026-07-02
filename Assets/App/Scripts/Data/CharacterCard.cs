@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 [Serializable]
@@ -6,6 +7,8 @@ public class CharacterCard {
     public Person person;
     public Surname surName;
     public GenderData gender;
+    public RaceData raceData;
+    public IconPerson iconPerson;
     public AgeGroup ageGroup;
     public HealthTrait healthTrait;
     public PersonalityTrait personalityTrait;
@@ -39,6 +42,37 @@ public class GenderData {
 //     new GenderData { Name = "Женщина", Value = 0 },
 //     new GenderData { Name = "Трансгендер", Value = 0 }
 // };
+
+[Serializable]
+public enum Race {
+    Human,
+    Mimic,
+    Demon
+}
+
+[Serializable]
+public class RaceData {
+    public int scenarioCount;
+    public string name;
+    public Race race;
+
+    public RaceData(int scenarioCount, string name, Race race)
+    {
+        this.scenarioCount = scenarioCount;
+        this.name = name;
+        this.race = race;
+    }
+}
+
+
+[Serializable]
+public class IconPerson
+{
+    public int scenarioCount;
+    public Gender gender;
+    public Race race;
+    public Texture icon;
+}
 
 [Serializable]
 public class AgeGroup {
