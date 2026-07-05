@@ -11,13 +11,17 @@ public class PanelLeft : View {
     {
         string value = dataGame.Scenario.title;
         SetNameGame(value);
-        
         value = dataGame.Scenario.description;
         SetDescriptionGame(value);
         
+        string nameLocation = dataGame.ScenarioLocation.location;
+        int numberSeats = dataGame.GetNumberSeats();
         
-        
+        value = $"{nameLocation}\n\n"+
+                $"Количество мест: {numberSeats}";
+        SetDescriptionSafeZone(value);
     }
+    
     
     public void SetNameGame(string value) {
         nameGame.text = value;
@@ -25,10 +29,6 @@ public class PanelLeft : View {
 
     public void SetDescriptionGame(string value) {
         descriptionGame.text = value;
-    }
-
-    public void SetTitleSafeZone(string value) {
-        titleSafeZone.text = value;
     }
 
     public void SetDescriptionSafeZone(string value) {

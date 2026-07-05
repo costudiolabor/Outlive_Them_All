@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PanelRight : View {
     [SerializeField] private RectTransform contentListSurvivors;
+    [SerializeField] private Text listSurvivors;
     [SerializeField] private Text endingDescription;
     
     [SerializeField] private Button buttonRules;
@@ -14,7 +15,6 @@ public class PanelRight : View {
     
     public void Initialize(DataGame dataGame) {
         Subscription();
-        
     }
 
     private void Subscription() {
@@ -33,6 +33,10 @@ public class PanelRight : View {
 
     private void OnSound() {
         SoundEvent?.Invoke();
+    }
+    
+    public void UpdateListSurvivors(string value) {
+        listSurvivors.text = value;
     }
 
     public void SetEndingDescription(string value) {

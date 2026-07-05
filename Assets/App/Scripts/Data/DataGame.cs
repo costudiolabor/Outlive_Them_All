@@ -10,6 +10,8 @@ public class DataGame : ScriptableObject
 {
     [SerializeField] private int maxScenario = 2;
     
+    public event Action DestroyPlayerEvent;
+    
     public Scenario[] scenarios = new Scenario[]
     {
         new Scenario(1, "На борту \"Тесея\"",
@@ -296,7 +298,6 @@ public class DataGame : ScriptableObject
     public int CountPlayers{ get; set; }
     public string NameGame{ get; set; }
     public int Round{ get; set; }
-    public int NumberSeats{ get; set; }
     public int CurrentIndexPlayer{ get; set; }
 
     public string Rules => rules;
@@ -312,7 +313,7 @@ public class DataGame : ScriptableObject
         CountPlayers = 0;
         NameGame = "";
         Round = 1;
-        NumberSeats = 0;
+        //NumberSeats = 0;
         CurrentIndexPlayer = 0;
         Players.Clear();
     }
@@ -334,12 +335,41 @@ public class DataGame : ScriptableObject
             }
         }
         return ending;
-    } 
-    
+    }
+
+    public int GetNumberSeats() => CountPlayers / 2;
     public int GetNumberPlayer() => Players[CurrentIndexPlayer].number;
     public int GetNumberPlayer(int index) => Players[index].number;
     public string GetNamePlayer() => Players[CurrentIndexPlayer].PlayerNickname;
     public CharacterCard GetCharacterCard() => Players[CurrentIndexPlayer].CharacterCard;
+
+    public string GetListSurvivors()
+    {
+        string result = "";
+        for (int i = 0; i < _players.Count; i++)
+        {
+            var number = _players[i].number;
+            result += $"{number}. {_players[i].PlayerNickname}\n";
+        }
+        
+        return result;
+    }
+
+
+    [ContextMenu("DestroyPlayerRandom")]
+
+    private void DestroyPlayerRandom()
+    {
+        PlayerUI player = _players[Random.Range(0, _players.Count)];
+        DestroyPlayer(player);
+    }
+    
+    public void DestroyPlayer(PlayerUI player)
+    {
+        _players.Remove(player);
+        Destroy(player.gameObject);
+        DestroyPlayerEvent?.Invoke();
+    }
 
     public void StartNewGame()
     {
@@ -347,7 +377,6 @@ public class DataGame : ScriptableObject
         Scenario = GetScenario();
         ScenarioLocation = GetScenarioLocation();
     }
-    
 }
 
 

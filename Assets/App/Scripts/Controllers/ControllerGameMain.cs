@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -38,6 +39,8 @@ public class ControllerGameMain : IDisposable{
         panelRight.RulesEvent += OnRules;
         panelRight.MenuEvent += OnMenu;
         panelRight.SoundEvent += OnSound;
+
+        _dataGame.DestroyPlayerEvent += OnDestroyPlayer;
     }
 
     public void SettingGame() {
@@ -45,6 +48,7 @@ public class ControllerGameMain : IDisposable{
         ShowTimer(sec);
         ShowInfo();
         CreateButtonsPlayers();
+        UpdateListSurvivors();
     }
     
     public void ShowTimer(int sec) {
@@ -136,6 +140,14 @@ public class ControllerGameMain : IDisposable{
     private void OnClickRandomEvent() {
         
     }
+
+    private void OnDestroyPlayer() => UpdateListSurvivors();
+    
+    public void UpdateListSurvivors()
+    {
+        string listSurvivors = _dataGame.GetListSurvivors();
+        panelRight.UpdateListSurvivors(listSurvivors);
+    }
     
     private void OnRules() {
         RulesEvent?.Invoke();
@@ -168,6 +180,7 @@ public class ControllerGameMain : IDisposable{
         RulesEvent = null;
         MenuEvent = null;
         SoundEvent = null;
+        _dataGame.DestroyPlayerEvent -= OnDestroyPlayer;
         RemoveAllListenersButtons();
     }
     

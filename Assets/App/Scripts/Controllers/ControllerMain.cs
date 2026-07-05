@@ -11,8 +11,10 @@ public class ControllerMain : IDisposable
     [SerializeField] private ControllerNextPlayer controllerNextPlayer;
     [SerializeField] private ControllerGameMain controllerGameMain;
 
+    private DataGame _dataGame;
     public void Initialize(SettingGame settingGame, DataGame dataGame, DataCharacter dataCharacter)
     {
+        _dataGame = dataGame;
         StartNewGame(dataGame);
         controllerMenu.Initialize();
         string rules = dataGame.Rules;
@@ -20,7 +22,7 @@ public class ControllerMain : IDisposable
         controllerCreateGame.Initialize(settingGame, dataGame);
         controllerCreatePlayers.Initialize(dataGame, dataCharacter);
         controllerNextPlayer.Initialize();
-        controllerGameMain.Initialize(dataGame);
+        // controllerGameMain.Initialize(dataGame);
         Subscription();
     }
 
@@ -69,6 +71,8 @@ public class ControllerMain : IDisposable
         controllerCreateGame.Hide();
         controllerCreatePlayers.CreatePlayers();
         controllerCreatePlayers.Show();
+        
+        controllerGameMain.Initialize(_dataGame);
     }
     
     private void OnBackCreateGame() {
