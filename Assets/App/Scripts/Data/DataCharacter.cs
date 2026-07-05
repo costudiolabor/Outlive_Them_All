@@ -372,13 +372,9 @@ public class DataCharacter : ScriptableObject
     {
         CharacterCard result = new CharacterCard();
         result.gender = genderData[Random.Range(0, genderData.Length)];
-        result.raceData = raceData[Random.Range(0, raceData.Length)];
-        
-        result.iconPerson = dataIconPerson.icons[Random.Range(0, dataIconPerson.icons.Length)];
-        
-        result.person = persons[Random.Range(0, persons.Length)]; 
-        //result.person = persons.GetRandomName(result.gender.gender, p => p.gender);
-        
+        result.raceData = raceData.GetRandomByScenario(scenario);
+        result.iconPerson = dataIconPerson.icons.GetRandomIcon(scenario, result.gender.gender, result.raceData.race);
+        result.person = persons.GetRandomByGender(result.gender.gender);
         result.surName = surnames[Random.Range(0, surnames.Length)];
         result.ageGroup = ageGroups[Random.Range(0, ageGroups.Length)];
         result.healthTrait = healthTraits[Random.Range(0, healthTraits.Length)];

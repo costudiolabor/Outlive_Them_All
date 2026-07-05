@@ -93,3 +93,83 @@ MonoBehaviour:
     gender: 2
     race: 1
     icon: {fileID: 2800000, guid: 26c135cfe2d23584180c06f2a3d0de1d, type: 3}
+  - scenarioCount: 2
+    gender: 1
+    race: 0
+    icon: {fileID: 2800000, guid: 55a8aedf8c77581408ee044ad381a5d0, type: 3}
+  - scenarioCount: 2
+    gender: 1
+    race: 0
+    icon: {fileID: 2800000, guid: f6d0656afc23b264fa7d640c55f618b9, type: 3}
+  - scenarioCount: 2
+    gender: 1
+    race: 0
+    icon: {fileID: 2800000, guid: 90d9be71007ee3042813e06343794ff7, type: 3}
+  - scenarioCount: 2
+    gender: 1
+    race: 0
+    icon: {fileID: 2800000, guid: 2e487589d0bf7b94794b6c91bb543cc8, type: 3}
+  - scenarioCount: 2
+    gender: 0
+    race: 0
+    icon: {fileID: 2800000, guid: df8d81b6ff7e7dc4888ebe09015b9cb7, type: 3}
+  - scenarioCount: 2
+    gender: 0
+    race: 0
+    icon: {fileID: 2800000, guid: 7d1e77c731f58c443a10e562804facb9, type: 3}
+  - scenarioCount: 2
+    gender: 0
+    race: 0
+    icon: {fileID: 2800000, guid: 0b71501dab7b1014d8b52d0021eb9db3, type: 3}
+  - scenarioCount: 2
+    gender: 0
+    race: 0
+    icon: {fileID: 2800000, guid: 14c0faa633f9b7c469a37127021a8e3d, type: 3}
+  - scenarioCount: 2
+    gender: 2
+    race: 0
+    icon: {fileID: 2800000, guid: 73d50f2060cdb8a4b85d7e6172b00c0a, type: 3}
+  - scenarioCount: 2
+    gender: 2
+    race: 0
+    icon: {fileID: 2800000, guid: ef6770d584d18214aa53324ced89375d, type: 3}
+  - scenarioCount: 2
+    gender: 1
+    race: 2
+    icon: {fileID: 2800000, guid: 7765f5b282507ab4c807758aa2949a37, type: 3}
+  - scenarioCount: 2
+    gender: 1
+    race: 2
+    icon: {fileID: 2800000, guid: 2c5ee00d3cddc6a4ea7d3b1578f77c31, type: 3}
+  - scenarioCount: 2
+    gender: 1
+    race: 2
+    icon: {fileID: 2800000, guid: 28806a441a4379d44a3b7c2cadfc6a4a, type: 3}
+  - scenarioCount: 2
+    gender: 1
+    race: 2
+    icon: {fileID: 2800000, guid: 93100f33924237146a76bd187b7bad4f, type: 3}
+  - scenarioCount: 2
+    gender: 0
+    race: 2
+    icon: {fileID: 2800000, guid: 5cae60fdac0d32a41b268839825f05b9, type: 3}
+  - scenarioCount: 2
+    gender: 0
+    race: 2
+    icon: {fileID: 2800000, guid: b3c2a1e1f8af91a49827bb7ca938db40, type: 3}
+  - scenarioCount: 2
+    gender: 0
+    race: 2
+    icon: {fileID: 2800000, guid: 0ceaca28e45311b4299f44a70302ba9a, type: 3}
+  - scenarioCount: 2
+    gender: 0
+    race: 2
+    icon: {fileID: 2800000, guid: 805fa15a3dd708c44827e801aaa843de, type: 3}
+  - scenarioCount: 2
+    gender: 2
+    race: 2
+    icon: {fileID: 2800000, guid: 3355603482ae62a4f97c5f2a84dc7076, type: 3}
+  - scenarioCount: 2
+    gender: 2
+    race: 2
+    icon: {fileID: 2800000, guid: 1e5348a1a0fc1e64aa29ac387b7d931a, type: 3}
