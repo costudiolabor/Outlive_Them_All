@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class ControllerNextPlayer {
+public class ControllerNextPlayer : IDisposable{
     [SerializeField] private PanelNextPlayer panelNextPlayer;
     
     public event Action NextEvent;
@@ -30,6 +30,7 @@ public class ControllerNextPlayer {
     
     private void OnNext() {
         NextEvent?.Invoke();
+        Hide();
     }
     
 
